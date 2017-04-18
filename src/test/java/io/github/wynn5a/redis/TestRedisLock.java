@@ -19,7 +19,7 @@ public class TestRedisLock {
     @Before
     public void setup(){
         LOGGER.debug("init jedis pool before test...");
-        pool = new JedisPoolBuilder().connect("43.248.97.145", 6379).auth("test-1").timeout(10000).create();
+        pool = new JedisPoolBuilder().create();
     }
 
     @Test
