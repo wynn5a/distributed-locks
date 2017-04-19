@@ -1,13 +1,12 @@
 package io.github.wynn5a.redis.client;
 
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * To create a Jedis pool easilier by using default value
- *
- * Created by fuwenming on 2017/4/17.
+ * <p>
+ * Created by wynn5a on 2016/7/17.
  */
 public class JedisPoolBuilder {
     private String host = "localhost";
@@ -16,32 +15,33 @@ public class JedisPoolBuilder {
     private JedisPoolConfig config = new JedisPoolConfig();
     private int timeout = 3000;
 
-    public JedisPoolBuilder connect(String host, int port){
+    public JedisPoolBuilder connect(String host, int port) {
         this.host = host;
         this.port = port;
         return this;
     }
 
-    public JedisPoolBuilder bind(int port){
+    public JedisPoolBuilder bind(int port) {
         this.port = port;
         return this;
     }
 
-    public JedisPoolBuilder config(JedisPoolConfig config){
+    public JedisPoolBuilder config(JedisPoolConfig config) {
         this.config = config;
         return this;
     }
 
-    public JedisPoolBuilder auth(String  authorization){
+    public JedisPoolBuilder auth(String authorization) {
         this.authorization = authorization;
         return this;
     }
-    public JedisPoolBuilder timeout(int  timeout){
+
+    public JedisPoolBuilder timeout(int timeout) {
         this.timeout = timeout;
         return this;
     }
 
-    public JedisPool create(){
+    public JedisPool create() {
         return new JedisPool(config, host, port, timeout, authorization);
     }
 }

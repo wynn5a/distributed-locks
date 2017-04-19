@@ -11,34 +11,48 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 /**
- * Created by fuwenming on 2017/4/17.
+ * Created by wynn5a on 2016/7/17.
  */
 public class TestRedisLock {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestRedisLock.class);
     private JedisPool pool;
+
     @Before
-    public void setup(){
+    private void setup() {
         LOGGER.debug("init jedis pool before test...");
         pool = new JedisPoolBuilder().create();
     }
 
     @Test
-    public void testRedisClient(){
-        try(Jedis jedis = pool.getResource()){
+    public void testRedisClient() {
+        try (Jedis jedis = pool.getResource()) {
             jedis.set("foo", "bar");
             String bar = jedis.get("foo");
-            Assert.assertEquals(bar, "bar" );
+            Assert.assertEquals(bar, "bar");
 
             jedis.del("foo");
             String barNull = jedis.get("foo");
             Assert.assertEquals(barNull, null);
+
+            String result = jedis.set("lock", "random", "NX", "PX", 1000);
+            Assert.assertEquals("OK", result);
+            boolean locked = RedisLockUtils.lock("lock", "random", 1000, jedis);
+            Assert.assertEquals(false, locked);
+            RedisLockUtils.releaseLock("lock", "random", jedis);
+            locked = RedisLockUtils.lock("lock", "random", 1000, jedis);
+            Assert.assertEquals(true, locked);
+
+            //clear data
+            RedisLockUtils.releaseLock("lock", "random", jedis);
         }
     }
 
     @After
-    public void clean(){
+    public void cleanup() {
         LOGGER.debug("destroy jedis pool after test...");
-        pool.destroy();
+        if (pool != null) {
+            pool.destroy();
+        }
     }
 
 }
