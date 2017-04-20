@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by fuwenming on 2017/4/20.
+ * Created by fuwenming on 2016/4/21.
  */
 public class TestZookeeperLock {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestZookeeperLock.class);
@@ -21,7 +21,7 @@ public class TestZookeeperLock {
 
     public void setup() {
         try {
-            zooKeeper = new ZooKeeper("43.248.97.145:2183", 100000, new Watcher() {
+            zooKeeper = new ZooKeeper("127.0.0.1:2183", 100000, new Watcher() {
                 @Override
                 public void process(WatchedEvent event) {
                     LOGGER.info("Get event : {}", event.getType().getIntValue());
@@ -50,7 +50,7 @@ public class TestZookeeperLock {
     public void testLock() throws InterruptedException {
         String resource = "Lock";
         new Thread(() -> {
-            ZookeeperLock lock = new ZookeeperLock(new ZooKeeperClient("43.248.97.145:2183"), resource);
+            ZookeeperLock lock = new ZookeeperLock(new ZooKeeperClient("127.0.0.1:2183"), resource);
             try {
                 lock.lock();
                 Thread.currentThread().sleep(5000);
