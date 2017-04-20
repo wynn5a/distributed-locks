@@ -4,7 +4,7 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * To create a Jedis pool easilier by using default value
+ * To create a Jedis pool easier by using default value
  * <p>
  * Created by wynn5a on 2016/7/17.
  */

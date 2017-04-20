@@ -33,7 +33,7 @@ public class RedisNodes {
                 nodes.add(new Jedis(hostAndPortStrings[0], Integer.parseInt(hostAndPortStrings[1]), timeout));
             }
         }
-        LOGGER.debug("init redis lock nodes : {}, timeout: {} seconds", nodes, timeout / 1000);
+        LOGGER.debug("init redis lock nodes : {}, timeout: {} ", nodes, timeout);
     }
 
     public RedisNodes(String... nodeUris) {
