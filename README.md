@@ -1,3 +1,3 @@
 # distributed-locks
 
-Distributed lock implements using Redis and Zookeeper
+Distributed locking based on zookeeper(ZooKeeperLock) and Redis(RedisLock)
