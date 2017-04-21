@@ -8,14 +8,13 @@ import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.rmi.runtime.Log;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Created by fuwenming on 2016/4/20.
+ * Created by fuwenming
  */
 public class ZookeeperLock implements DistributedLock {
     private static final Logger LOGGER = LoggerFactory.getLogger(ZookeeperLock.class);
@@ -125,7 +124,7 @@ public class ZookeeperLock implements DistributedLock {
             }
         } catch (Exception e) {
             LOGGER.error("Exception happened!", e);
-            if(!GOT.get() && !client.isClosed()){
+            if (!GOT.get() && !client.isClosed()) {
                 client.closeConnection();
             }
         }

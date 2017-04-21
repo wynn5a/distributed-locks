@@ -6,7 +6,7 @@ import redis.clients.jedis.JedisPoolConfig;
 /**
  * To create a Jedis pool easier by using default value
  * <p>
- * Created by wynn5a on 2016/7/17.
+ * Created by wynn5a
  */
 public class JedisPoolBuilder {
     private String host = "localhost";

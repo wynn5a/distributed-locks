@@ -11,7 +11,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 /**
- * Created by wynn5a on 2016/7/17.
+ * Created by wynn5a
  */
 public class TestRedisLock {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestRedisLock.class);

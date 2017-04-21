@@ -3,7 +3,7 @@ package io.github.wynn5a.lock;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by wynn5a on 2016/7/17.
+ * Created by wynn5a
  */
 public interface DistributedLock {
     /**

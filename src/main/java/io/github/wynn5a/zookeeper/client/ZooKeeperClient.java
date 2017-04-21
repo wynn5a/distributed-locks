@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Created by fuwenming on 2016/4/20.
+ * Created by fuwenming
  */
 public class ZooKeeperClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(ZooKeeperClient.class);

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Redis nodes used for lock
  * <p>
- * Created by wynn5a on 2016/7/17.
+ * Created by wynn5a
  */
 public class RedisNodes {
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisNodes.class);

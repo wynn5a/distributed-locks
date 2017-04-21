@@ -1,7 +1,7 @@
 package io.github.wynn5a.zookeeper;
 
 /**
- * Created by fuwenming on 2016/4/20.
+ * Created by fuwenming
  */
 public interface ZooKeeperLockConstant {
     String PATH_SEPARATOR = "/";

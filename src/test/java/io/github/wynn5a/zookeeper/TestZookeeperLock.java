@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by fuwenming on 2016/4/21.
+ * Created by fuwenming
  */
 public class TestZookeeperLock {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestZookeeperLock.class);

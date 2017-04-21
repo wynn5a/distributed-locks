@@ -7,7 +7,7 @@ import redis.clients.jedis.Jedis;
 import java.util.Collections;
 
 /**
- * Created by wynn5a on 2016/7/20.
+ * Created by wynn5a
  */
 public class RedisLockUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisLockUtils.class);
